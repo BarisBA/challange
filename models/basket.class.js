@@ -2,11 +2,11 @@ class Basket {
     basketProducts = [];
     basketPrices = [];
     amount = [];
-    sum = [];
-    finalSum = [];
+    sum;
+    finalSum;
 
     constructor(products, prices) {
-      this.indexOf(products, prices);
+        this.indexOf(products, prices);
     }
 
     indexOf(products, prices) {
@@ -19,6 +19,7 @@ class Basket {
             this.amount[index]++;
         }
         this.renderBasket();
+        //console.log(products);
     }
 
     renderBasket() {
@@ -27,7 +28,7 @@ class Basket {
         }
         this.resultBasket();
     }
-  
+
     templateBasket(j) {
         return `
             <div class="">
@@ -40,15 +41,13 @@ class Basket {
     increase(j) {
         this.amount[j]++;
         //this.renderBasket();
-       // console.log('yes');
+        // console.log('yes');
     }
 
     resultBasket() {
         this.sum = 0;
         for (let i = 0; i < this.basketPrices.length; i++) {
-
             this.sum += this.basketPrices[i] * this.amount[i];
-            
         }
         this.finalSum = this.sum + 1.00;
         document.getElementById('basketResult').innerHTML = this.templateBasketResult();
@@ -56,9 +55,9 @@ class Basket {
 
     templateBasketResult() {
         return `
-        <div>
-            <span>Zwischensumme:</span>${this.sum}
-        </div>
+            <div>
+                <span>Zwischensumme: ${this.sum.toFixed(2).replace('.', ',')} €</span>
+            </div>
         `;
     }
 }

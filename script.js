@@ -1,5 +1,5 @@
 let products = ['Crossaint', 'Bread'];
-let prices = ['1,49', '2,00']
+let prices = ['1.49', '2.00']
 
 function init() {
     showProducts();
@@ -7,7 +7,7 @@ function init() {
 
 function showProducts() {
     for (let i = 0; i < products.length; i++) {
-        
+
         document.getElementById('products').innerHTML += templateShowProducts(i);
     }
 
@@ -22,5 +22,5 @@ function showProducts() {
 }
 
 function addToBasket(i) {
-    new Basket(products[i], prices[i]); 
+    new Basket(products[i], prices[i]);
 }    
